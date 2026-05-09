@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Us | Kamay The Premium</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#fff;
+      color:#222;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* NAVBAR */
+
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:#111;
+    }
+
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+    }
+
+    .logo{
+      color:#fff;
+      font-size:28px;
+      font-weight:bold;
+      letter-spacing:2px;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+    }
+
+    .nav-links li{
+      margin-left:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#fff;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:gold;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:60vh;
+      background:url('https://images.unsplash.com/photo-1566073771259-6a8506099945')
+      center/cover no-repeat;
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:#fff;
+    }
+
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.6);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      animation:fadeIn 2s ease;
+    }
+
+    .hero-content h1{
+      font-size:65px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      max-width:700px;
+      line-height:1.7;
+      margin:auto;
+    }
+
+    /* ABOUT */
+
+    .about{
+      padding:100px 8%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about-image img{
+      width:100%;
+      border-radius:15px;
+      transition:0.5s;
+    }
+
+    .about-image img:hover{
+      transform:scale(1.03);
+    }
+
+    .about-text h2{
+      font-size:45px;
+      margin-bottom:25px;
+    }
+
+    .about-text p{
+      line-height:1.9;
+      margin-bottom:20px;
+      color:#555;
+      font-size:17px;
+    }
+
+    /* FEATURES */
+
+    .features{
+      background:#f8f8f8;
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:45px;
+    }
+
+    .feature-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .feature-box{
+      background:#fff;
+      padding:40px 30px;
+      text-align:center;
+      border-radius:15px;
+      transition:0.4s;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .feature-box:hover{
+      transform:translateY(-10px);
+      background:#111;
+      color:#fff;
+    }
+
+    .feature-box i{
+      font-size:45px;
+      margin-bottom:20px;
+      color:goldenrod;
+    }
+
+    .feature-box h3{
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .feature-box p{
+      line-height:1.7;
+    }
+
+    /* BANQUET */
+
+    .banquet{
+      padding:100px 8%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .banquet-text h2{
+      font-size:42px;
+      margin-bottom:25px;
+    }
+
+    .banquet-text p{
+      line-height:1.9;
+      color:#555;
+      margin-bottom:20px;
+    }
+
+    .banquet-image img{
+      width:100%;
+      border-radius:15px;
+      transition:0.5s;
+    }
+
+    .banquet-image img:hover{
+      transform:scale(1.03);
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111;
+      color:#fff;
+      text-align:center;
+      padding:60px 8%;
+    }
+
+    footer h2{
+      margin-bottom:20px;
+      font-size:35px;
+    }
+
+    footer p{
+      color:#ccc;
+      margin-bottom:12px;
+    }
+
+    .socials{
+      margin:25px 0;
+    }
+
+    .socials i{
+      font-size:24px;
+      margin:0 12px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .socials i:hover{
+      color:gold;
+      transform:translateY(-5px);
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeIn{
+
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .about,
+      .banquet{
+        grid-template-columns:1fr;
+      }
+
+      .hero-content h1{
+        font-size:45px;
+      }
+
+      .hero-content p{
+        font-size:18px;
+        padding:0 20px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header>
+
+    <nav class="navbar">
+
+      <div class="logo">KAMAY</div>
+
+      <ul class="nav-links">
+
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Rooms</a></li>
+        <li><a href="#">Dining</a></li>
+        <li><a href="#">Banquets</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+      <h1>About Kamay The Premium</h1>
+
+      <p>
+        A destination where luxury, comfort, and hospitality come together
+        to create unforgettable experiences in Gurugram.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT SECTION -->
+
+  <section class="about">
+
+    <div class="about-image">
+
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Hotel">
+
+    </div>
+
+    <div class="about-text">
+
+      <h2>Luxury & Comfort Redefined</h2>
+
+      <p>
+        Located in the heart of Gurugram, Kamay The Premium offers a perfect
+        blend of elegance, comfort, and affordability. Designed for both
+        business and leisure travelers, the hotel provides a premium stay
+        experience with warm hospitality and modern amenities.
+      </p>
+
+      <p>
+        With 30 thoughtfully designed rooms, stylish interiors, and exceptional
+        guest services, Kamay The Premium ensures every visitor enjoys a peaceful,
+        relaxing, and memorable stay.
+      </p>
+
+      <p>
+        Our commitment to quality service, personalized attention,
+        and modern comfort makes us an ideal destination for corporate stays,
+        family vacations, and special occasions.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <div class="section-title">
+
+      <h2>Why Choose Us</h2>
+
+    </div>
+
+    <div class="feature-container">
+
+      <div class="feature-box">
+
+        <i class="fa-solid fa-bed"></i>
+
+        <h3>Premium Rooms</h3>
+
+        <p>
+          Spacious accommodations with elegant interiors and modern amenities.
+        </p>
+
+      </div>
+
+      <div class="feature-box">
+
+        <i class="fa-solid fa-utensils"></i>
+
+        <h3>Multi-Cuisine Dining</h3>
+
+        <p>
+          Enjoy Indian, Chinese, and Continental delicacies at our restaurant.
+        </p>
+
+      </div>
+
+      <div class="feature-box">
+
+        <i class="fa-solid fa-wifi"></i>
+
+        <h3>Modern Amenities</h3>
+
+        <p>
+          High-speed Wi-Fi, centralized air conditioning, and 24-hour room service.
+        </p>
+
+      </div>
+
+      <div class="feature-box">
+
+        <i class="fa-solid fa-people-group"></i>
+
+        <h3>Event Spaces</h3>
+
+        <p>
+          Elegant banquet facilities ideal for meetings, weddings, and celebrations.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BANQUET SECTION -->
+
+  <section class="banquet">
+
+    <div class="banquet-text">
+
+      <h2>Banquets & Celebrations</h2>
+
+      <p>
+        Our well-equipped banquet hall with a capacity of up to 150 guests
+        is perfect for corporate meetings, conferences, weddings,
+        private parties, and social gatherings.
+      </p>
+
+      <p>
+        With customized catering services, elegant décor,
+        and modern audiovisual facilities, we ensure every event
+        becomes a memorable experience.
+      </p>
+
+    </div>
+
+    <div class="banquet-image">
+
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3" alt="Banquet Hall">
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h2>KAMAY THE PREMIUM</h2>
+
+    <p>
+      Plot No. 220-P, Sector 51, Gurugram, Haryana – 122003, India
+    </p>
+
+    <p>
+      Mobile: +91 92516 23298 | 0124-4781249
+    </p>
+
+    <p>
+      Email: adithiya@kamayhotels.com
+    </p>
+
+    <div class="socials">
+
+      <i class="fa-brands fa-facebook"></i>
+
+      <i class="fa-brands fa-instagram"></i>
+
+      <i class="fa-brands fa-twitter"></i>
+
+    </div>
+
+    <p>
+      © 2026 Kamay The Premium. All Rights Reserved.
+    </p>
+
+  </footer>
+
+</body>
+</html>
